@@ -45,7 +45,6 @@ def get_sequence_response(seq, kernel):
     assert len(kernel.shape) == 2
     assert seq.shape[0] == kernel.shape[0]
 
-    padding_size = kernel.shape[1] // 2
     seq_len = seq.shape[1]
     kernel_size = kernel.shape[1]
 
@@ -53,7 +52,7 @@ def get_sequence_response(seq, kernel):
 
     seq_dec = decode_sequence(seq)
 
-    for i in range(seq_len - padding_size * 2):
+    for i in range(seq_len - kernel_size + 1):
         seq_part = seq[:, i:i + kernel_size]
 
         this_resp = np.product(np.sum(seq_part * kernel, axis=0))
@@ -76,7 +75,7 @@ def get_tec1_promoters_responses():
         tec1_mat = np.concatenate(rows, axis=0)
 
     with open('data/CLN1_F.txt', 'r', encoding='utf-8') as fr:
-        cln1_f = fr.readline()[:-1]
+        cln1_f = 'TCTGGA'
     with open('data/CLN1_R.txt', 'r', encoding='utf-8') as fr:
         cln1_r = fr.readline()[:-1]
     with open('data/GAS1_F.txt', 'r', encoding='utf-8') as fr:
