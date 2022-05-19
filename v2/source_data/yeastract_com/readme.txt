@@ -1,0 +1,1 @@
+Obtained from http://www.yeastract.com/formorftogene.php

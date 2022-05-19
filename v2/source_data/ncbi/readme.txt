@@ -1,0 +1,1 @@
+The 1000 bp upstream of start codon of a given gene was extracted from NBCI database for each gene.
