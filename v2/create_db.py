@@ -1,23 +1,12 @@
-from json import load
-
-import psycopg2
-from psycopg2 import sql
-import pandas as pd
-from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
-from getpass import getpass
 import math
+
+import pandas as pd
+import psycopg2
+from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 from tqdm import tqdm
 
+from constants import *
 from utils import load_binding_mat, get_seq_response
-
-USER = 'postgres'
-with open('password.txt', 'r', encoding='utf-8') as fr:
-    PSWD = fr.read()
-
-# print('SQL server password: ')
-# PSWD = getpass()
-
-DB_NAME = 'masterthesis'
 
 # SQL scripts
 CRATE_YORFS = 'sql/v01.00.0090.create.table.yorfs.sql'
