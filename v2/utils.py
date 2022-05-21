@@ -66,8 +66,6 @@ def get_seq_response(seq_f, rbam):
         score_50 += int(score_f > 0.49) + int(score_r > 0.49)
         score_20 += int(score_f > 0.19) + int(score_r > 0.19)
 
-    response_r.reverse()
-
     assert score_99 <= score_50 <= score_20
 
     return {
