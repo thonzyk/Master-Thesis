@@ -15,6 +15,7 @@ aft.yorf is not null
 and pr.yorf is not null
 and pr.tec1_50 > 0
 and abs(aft.avg_ratio) > aft.avg_change
+and aft.avg_ratio < -1
 
 order by
 aft.avg_ratio
